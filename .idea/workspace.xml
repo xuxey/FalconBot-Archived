@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea3b5f83-da80-42fc-8411-1a01c3402cd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/New Text Document.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/octave-bot-2.2.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/trivia.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
