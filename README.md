@@ -6,7 +6,6 @@ Repo for the Discord bot, FalconBot.
 [FalconBot](https://discordbots.org/bot/511949995776147466) is a small side project that emnated from curiosity of Discord Bots.
 This bot makes your discord community experience better by adding convenience, fun and a tad bit of utility!
 
-`Note: Bot may have possible downtime due to maintenance and network issues. This is temporary`
 
 ## Getting Started
 
