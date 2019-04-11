@@ -20,6 +20,7 @@ public class YouTubeSearcher extends Command {
         this.help = "Searches YouTube for the given search term";
         this.cooldownScope = CooldownScope.USER;
         this.cooldown = 5;
+        this.category = new Category("Utility");
     }
 
     @Override

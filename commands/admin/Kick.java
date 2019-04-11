@@ -12,7 +12,6 @@ import java.util.List;
             this.name = "kick";
             this.aliases = new String[]{"KICK", "kick", "byebye"};
             this.help = "Kicks mentioned account from the server";
-            this.botPermissions = new Permission[Permission.KICK_MEMBERS.getOffset()];
             this.category = new Category("Moderation");
         }
 

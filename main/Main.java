@@ -6,12 +6,13 @@ import com.xuxe.octaveBot.commands.admin.PurgeMessages;
 import com.xuxe.octaveBot.commands.miscellaneous.*;
 import com.xuxe.octaveBot.commands.music.MusicCommand;
 import com.xuxe.octaveBot.commands.owner.Eval;
+import com.xuxe.octaveBot.commands.owner.ListGuilds;
 import com.xuxe.octaveBot.commands.owner.MemoryCommand;
 import com.xuxe.octaveBot.commands.owner.Say;
 import com.xuxe.octaveBot.commands.utility.*;
 import com.xuxe.octaveBot.commands.utility.Math;
+import com.xuxe.octaveBot.listeners.Friends;
 import com.xuxe.octaveBot.listeners.MessageReceived;
-import com.xuxe.octaveBot.listeners.PrivateMessageRecieved;
 import com.xuxe.octaveBot.listeners.Ready;
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.*;
@@ -70,19 +71,20 @@ public class Main extends ListenerAdapter {
         commandClientBuilder.addCommand(new YouTubeSearcher());
         commandClientBuilder.addCommand(new Math());
         //miscellaneous
-        commandClientBuilder.addCommand(new HelpCommand());
         commandClientBuilder.addCommand(new GetBotPing());
         commandClientBuilder.addCommand(new GetRepository());
         commandClientBuilder.addCommand(new UserCount());
         commandClientBuilder.addCommand(new GuildCount());
+        commandClientBuilder.addCommand(new EmoteInfo());
         //owner
         commandClientBuilder.addCommand(new Eval());
         commandClientBuilder.addCommand(new Say());
         commandClientBuilder.addCommand(new MemoryCommand());
+        commandClientBuilder.addCommand(new ListGuilds());
         //building client
         commandClientBuilder.setOwnerId(ownerID);
         commandClientBuilder.useHelpBuilder(true);
-
+        //commandClientBuilder.setDiscordBotsKey("");
 
         JDA jda = new JDABuilder(AccountType.BOT).setToken(token).addEventListener(commandClientBuilder.build()).addEventListener(waiter).build().awaitReady();
         jda.getPresence().setGame(Game.listening("Raptor engines (!!help)"));
@@ -90,8 +92,7 @@ public class Main extends ListenerAdapter {
         commandClientBuilder.setServerInvite("https://discordapp.com/invite/xNyH7y3");
 
         jda.addEventListener(new MessageReceived());
-        jda.addEventListener(new PrivateMessageRecieved());
         jda.addEventListener(new Ready());
-
+        jda.addEventListener(new Friends());
     }
 }

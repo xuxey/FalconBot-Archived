@@ -31,7 +31,7 @@ public class Emotify extends Command
     }
     public Emotify() {
     this.name = "emotify";
-    this.aliases = new String[]{"emote", "emojify"};
+    this.aliases = new String[] {"emojify"};
     this.help = "Converts an alpha numeric string into its emote equivalent. Limited to 12 characters.";
     this.category = new Category("Utility");
         this.guildOnly=false;

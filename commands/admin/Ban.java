@@ -14,7 +14,6 @@ public class Ban extends Command {
         this.aliases = new String[]{"BAN", "Ban"};
         this.help = "Bans mentioned account from the server";
         this.category = new Category("Moderation");
-        this.botPermissions = new Permission[Permission.BAN_MEMBERS.getOffset()];
     }
 
     @Override
@@ -28,12 +27,12 @@ public class Ban extends Command {
         Member author = commandEvent.getMessage().getMember();
 
         if (!author.hasPermission(Permission.BAN_MEMBERS)) {
-            commandEvent.reply("You don't have permission to kick people!");
+            commandEvent.reply("You don't have permission to ban!");
             return;
         }
         List<Member> mentionedMembers = commandEvent.getMessage().getMentionedMembers();
         if (mentionedMembers.isEmpty()) {
-            commandEvent.reply("You must mention who you want to be kicked");
+            commandEvent.reply("You must mention who you want to ban");
             return;
         }
         Member bannedUser = mentionedMembers.get(0);

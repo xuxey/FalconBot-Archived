@@ -15,6 +15,7 @@ public class MemoryCommand extends Command
         this.aliases = new String[]{"mem", "m", "data", "usage"};
         this.hidden = true;
         this.ownerCommand = true;
+        this.category = new Category("Owner");
 
     }
 

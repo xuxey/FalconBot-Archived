@@ -11,6 +11,7 @@ public class Say extends Command
         this.name = "say";
         this.aliases = new String[]{"Xuccbotsay"};
         this.ownerCommand = true;
+        this.category = new Category("Owner");
     }
     @Override
     protected void execute(CommandEvent commandEvent)

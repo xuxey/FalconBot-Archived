@@ -35,7 +35,6 @@ public class PurgeMessages extends Command
     this.name = "purge";
     this.aliases = new String[]{"PURGE", "deleterecent"};
     this.help = "Deletes a fixed number of recent messages. Usage: `!!purge <number>`";
-    this.botPermissions = new Permission[Permission.MESSAGE_MANAGE.getOffset()];
-        this.category = new Category("Moderation");
+    this.category = new Category("Moderation");
 }
 }

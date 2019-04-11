@@ -42,8 +42,8 @@ public class RandomFact extends Command
     }
 
     public RandomFact() {
-    this.name = "mindfuck";
-    this.aliases = new String[]{"facts", "randomfacts","mindblow", "fact","randomfact"};
+    this.name = "mindblow";
+    this.aliases = new String[]{"facts", "randomfacts","mindfuck", "fact","randomfact"};
     this.help = "Gets a random fact";
         this.category = new Category("Utility");
         this.guildOnly=false;

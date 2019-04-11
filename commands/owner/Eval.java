@@ -35,6 +35,7 @@ public class Eval extends Command
         this.name = "eval";
         this.hidden = true;
         this.help = "evaluates arguments passed to it.";
+        this.category = new Category("Owner");
     }
     @Override
     protected void execute(CommandEvent event) {
