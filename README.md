@@ -26,8 +26,7 @@ However, this bot has a minimal amount of permissions, meaning !!ban and !!kick 
 
 ## Using the bot
 
-The bot has the standalone prefix `!` for tasks that are non administrative.
-For administrative and help commands, `!!` is the prefix. This is because of a high probability of multiple bots exisisting with the same prefix.
+For commands, `!!` is the prefix.
 
 ### Some commands
 
