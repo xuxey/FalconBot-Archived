@@ -1,12 +1,19 @@
  
 # FalconBot
 
-Repo for the Discord bot, FalconBot.
-
 [FalconBot](https://discordbots.org/bot/511949995776147466) is a small side project that emnated from curiosity of Discord Bots.
 This bot makes your discord community experience better by adding convenience, fun and a tad bit of utility!
 
-`Note: Bot may have possible downtime due to maintenance and network issues. This is temporary`
+## About
+FalconBot is built around parsing the internet within discord. With commands such as google, youtube and wiki, FalconBot helps you find information you need instantaneously.
+
+FalconBot also has some fun features such as emotify, cat and trivia commands and more.
+
+The Bot has some moderation features like Ban and Kick, with more coming soon.
+
+FalconBot also has music features which are currently in Beta.
+
+With features like math and lyrics, you can do a lot of extra tasks and get a lot of information without ever having to leave discord.
 
 ## Getting Started
 
@@ -27,8 +34,7 @@ However, this bot has a minimal amount of permissions, meaning !!ban and !!kick 
 
 ## Using the bot
 
-The bot has the standalone prefix `!` for tasks that are non administrative.
-For administrative and help commands, `!!` is the prefix. This is because of a high probability of multiple bots exisisting with the same prefix.
+For commands, `!!` is the prefix.
 
 ### Some commands
 
