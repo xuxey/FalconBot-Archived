@@ -20,6 +20,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import com.xuxe.octaveBot.commands.admin.Ban;
 import java.io.*;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 /*
     Copyright 2019 ThatXuxe
@@ -33,9 +34,11 @@ import java.util.Properties;
  */
 @SuppressWarnings("unused")
 public class Main extends ListenerAdapter {
-
+    
+    private static  final Logger logger = Logger.getGlobal();
     public static void main(String[] args) throws Exception {
 
+        logger.info("FalconBot is launching... T minus alpha");
         //extracting bot token and owner ID
         Properties properties = new Properties();
         FileReader fileReader = new FileReader("config.properties");
@@ -45,12 +48,13 @@ public class Main extends ListenerAdapter {
         fileReader.close();
         properties.clear();
         EventWaiter waiter = new EventWaiter();
-
+        logger.info("Assets loaded, event waiter(s) have been initialized.");
         //building commands.
         CommandClientBuilder commandClientBuilder = new CommandClientBuilder();
 
         commandClientBuilder.setPrefix("!!");
         //Admin
+        logger.info("Adding commands.");
         commandClientBuilder.addCommand(new Kick());
         commandClientBuilder.addCommand(new Ban());
         commandClientBuilder.addCommand(new PurgeMessages());
@@ -71,29 +75,33 @@ public class Main extends ListenerAdapter {
         commandClientBuilder.addCommand(new YouTubeSearcher());
         commandClientBuilder.addCommand(new Math());
         //miscellaneous
-        commandClientBuilder.addCommand(new HelpCommand());
         commandClientBuilder.addCommand(new GetBotPing());
         commandClientBuilder.addCommand(new GetRepository());
         commandClientBuilder.addCommand(new UserCount());
         commandClientBuilder.addCommand(new GuildCount());
+        commandClientBuilder.addCommand(new EmoteInfo());
         //owner
         commandClientBuilder.addCommand(new Eval());
         commandClientBuilder.addCommand(new Say());
         commandClientBuilder.addCommand(new MemoryCommand());
         commandClientBuilder.addCommand(new ListGuilds());
+        logger.info("Commands added.");
         //building client
+        logger.info("Using Owner ID: "+ownerID);
         commandClientBuilder.setOwnerId(ownerID);
         commandClientBuilder.useHelpBuilder(true);
-        commandClientBuilder.setDiscordBotsKey("511949995776147466");
+        //commandClientBuilder.setDiscordBotsKey("");
 
         JDA jda = new JDABuilder(AccountType.BOT).setToken(token).addEventListener(commandClientBuilder.build()).addEventListener(waiter).build().awaitReady();
         jda.getPresence().setGame(Game.listening("Raptor engines (!!help)"));
+        logger.info("JDA created.");
         //Event Listeners
         commandClientBuilder.setServerInvite("https://discordapp.com/invite/xNyH7y3");
-
+        logger.info("Adding Event Listeners");
         jda.addEventListener(new MessageReceived());
         jda.addEventListener(new Ready());
         jda.addEventListener(new Friends());
-
+        logger.info("---FalconBot is a go.---");
+        logger.info("Startup Finished.");
     }
 }

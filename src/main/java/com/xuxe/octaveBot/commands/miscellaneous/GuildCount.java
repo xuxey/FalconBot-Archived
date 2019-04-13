@@ -5,11 +5,13 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.EmbedBuilder;
 
 import java.awt.*;
+import java.util.logging.Logger;
 
 public class GuildCount extends Command {
+    private static final Logger logger = Logger.getGlobal();
     @Override
     protected void execute(CommandEvent commandEvent) {
-        EmbedBuilder guilds = new EmbedBuilder();
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());        EmbedBuilder guilds = new EmbedBuilder();
         guilds.setTitle("Guild Count");
         guilds.setColor(Color.DARK_GRAY);
         guilds.setDescription("This bot is in " + commandEvent.getJDA().getGuilds().size() + " guilds.");

@@ -8,15 +8,17 @@ import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.requests.RestAction;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 public class PurgeMessages extends Command
 {
+    private static Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent event)
+    protected void execute(CommandEvent commandEvent)
     {
-        MessageChannel messageChannel = event.getChannel();
-        if(event.getMember().hasPermission(Permission.MESSAGE_MANAGE)) {
-            String[] command = event.getMessage().getContentRaw().split(" ");
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());        MessageChannel messageChannel = commandEvent.getChannel();
+        if(commandEvent.getMember().hasPermission(Permission.MESSAGE_MANAGE)) {
+            String[] command = commandEvent.getMessage().getContentRaw().split(" ");
 
             if (command.length == 2) {
                 RestAction<List<Message>> messageHistory = messageChannel.getHistory().retrievePast(Integer.parseInt(command[1]) + 1);
@@ -35,7 +37,6 @@ public class PurgeMessages extends Command
     this.name = "purge";
     this.aliases = new String[]{"PURGE", "deleterecent"};
     this.help = "Deletes a fixed number of recent messages. Usage: `!!purge <number>`";
-    this.botPermissions = new Permission[Permission.MESSAGE_MANAGE.getOffset()];
-        this.category = new Category("Moderation");
+    this.category = new Category("Moderation");
 }
 }

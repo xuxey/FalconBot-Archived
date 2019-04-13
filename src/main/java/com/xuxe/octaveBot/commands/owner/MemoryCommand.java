@@ -13,7 +13,6 @@ public class MemoryCommand extends Command
         this.name = "memory";
         this.help = "returns memory used by the Bot";
         this.aliases = new String[]{"mem", "m", "data", "usage"};
-        this.hidden = true;
         this.ownerCommand = true;
         this.category = new Category("Owner");
 

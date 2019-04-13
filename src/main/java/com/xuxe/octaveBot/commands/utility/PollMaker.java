@@ -5,11 +5,14 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.EmbedBuilder;
 
 import java.awt.*;
+import java.util.logging.Logger;
 
 public class PollMaker extends Command
 {
+    private static final Logger logger = Logger.getGlobal();
     @Override
     protected void execute(CommandEvent commandEvent) {
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
         String messageContent = commandEvent.getMessage().getContentRaw();
         messageContent = messageContent.substring(messageContent.indexOf(' '));
         String[] command = messageContent.split(":");

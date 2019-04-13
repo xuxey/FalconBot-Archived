@@ -7,12 +7,14 @@ import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.User;
 
 import java.awt.*;
+import java.util.logging.Logger;
 
 public class Avatar extends Command {
+    private static final Logger logger = Logger.getGlobal();
     @Override
     protected void execute(CommandEvent commandEvent)
     {
-        String messageContent = commandEvent.getMessage().getContentRaw();
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());        String messageContent = commandEvent.getMessage().getContentRaw();
         User author = commandEvent.getAuthor();
         MessageChannel messageChannel = commandEvent.getChannel();
         System.out.println("~~~~~~"+messageContent);

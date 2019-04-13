@@ -8,14 +8,17 @@ import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.User;
 
 import java.util.concurrent.Executors;
+import java.util.logging.Logger;
 
 public class Math extends Command {
+    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent event)
+    protected void execute(CommandEvent commandEvent)
     {
-        MessageChannel messageChannel = event.getChannel();
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
+        MessageChannel messageChannel = commandEvent.getChannel();
         try {
-            String messageContent = event.getMessage().getContentRaw();
+            String messageContent = commandEvent.getMessage().getContentRaw();
 
             messageContent = messageContent.substring(6).trim();
             if (messageContent.length() <= 25) {
@@ -35,8 +38,8 @@ public class Math extends Command {
                 messageContent = messageContent.replace("÷", "/");
                 if (messageContent.contains("Java")) {
                     messageChannel.sendMessage("use of keyword: `Java` is NOT allowed!").queue();
-                    User author = event.getAuthor();
-                    System.out.println(author.getName() + "#" + author.getDiscriminator() + " tried using Java in guild " + event.getGuild().getId() + " and channel " + messageChannel.getId() + " in message " + event.getMessage().getId());
+                    User author = commandEvent.getAuthor();
+                    System.out.println(author.getName() + "#" + author.getDiscriminator() + " tried using Java in guild " + commandEvent.getGuild().getId() + " and channel " + messageChannel.getId() + " in message " + commandEvent.getMessage().getId());
                     throw new Exception("Illegal Math argument: Java.type");
                 }
                 while (messageContent.contains("^") || messageContent.contains("!")) {

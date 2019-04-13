@@ -11,16 +11,19 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.awt.*;
+import java.util.logging.Logger;
 
 public class Google extends Command
 {
+    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent event)
+    protected void execute(CommandEvent commandEvent)
     {
-        Guild guild = event.getGuild();
-        MessageChannel messageChannel = event.getChannel();
-        String messageContent = event.getMessage().getContentRaw();
-        User author = event.getAuthor();
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
+        Guild guild = commandEvent.getGuild();
+        MessageChannel messageChannel = commandEvent.getChannel();
+        String messageContent = commandEvent.getMessage().getContentRaw();
+        User author = commandEvent.getAuthor();
         if (guild.getId().equals("302467759823126529") && !(author.getId().equalsIgnoreCase("451720586134290443")) && !(guild.getMember(author).isOwner())) {
             messageChannel.sendMessage("Sorry, this feature is disabled in this guild.").queue();
         } else {
@@ -34,7 +37,7 @@ public class Google extends Command
                 Element result = doc.select("h3.r > a").first();
                 String linkHref = "" + result.attr("href");
                 linkText = "" + result.text();
-                System.out.println("!g LOG: " + linkText + ", URL::" + linkHref.substring(6, linkHref.indexOf("&")) + " requested by " + author.getName());
+                logger.info("!google LOG: " + linkText + ", URL::" + linkHref.substring(6, linkHref.indexOf("&")) + " requested by " + author.getName());
 
                 EmbedBuilder googleE = new EmbedBuilder();
                 String desc = linkHref.substring(7, linkHref.indexOf("&"));

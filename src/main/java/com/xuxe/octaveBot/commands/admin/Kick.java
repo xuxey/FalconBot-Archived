@@ -7,18 +7,20 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Member;
 
 import java.util.List;
-    public class Kick extends Command {
+import java.util.logging.Logger;
+
+public class Kick extends Command {
+        private static Logger logger = Logger.getGlobal();
         public Kick() {
             this.name = "kick";
             this.aliases = new String[]{"KICK", "kick", "byebye"};
             this.help = "Kicks mentioned account from the server";
-            this.botPermissions = new Permission[Permission.KICK_MEMBERS.getOffset()];
             this.category = new Category("Moderation");
         }
 
         @Override
         protected void execute(CommandEvent commandEvent) {
-            Guild guild = commandEvent.getGuild();
+            logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());            Guild guild = commandEvent.getGuild();
 
             if (guild == null) {
                 commandEvent.reply("You must run this command in a server");

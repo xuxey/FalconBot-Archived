@@ -8,12 +8,15 @@ import java.awt.*;
 import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class RandomFact extends Command
 {
+    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent event)
+    protected void execute(CommandEvent commandEvent)
     {
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
         try {
             UsefulMethods usefulMethods = new UsefulMethods();
             Random r = new Random();
@@ -28,7 +31,7 @@ public class RandomFact extends Command
                     mindF.setTitle("MindFuck");
                     mindF.setDescription(s);
                     mindF.setColor(Color.red);
-                    event.getChannel().sendMessage(mindF.build()).queue();
+                    commandEvent.getChannel().sendMessage(mindF.build()).queue();
                     break;
                 }
             }
@@ -37,13 +40,13 @@ public class RandomFact extends Command
         }
         catch (IOException io)
         {
-            event.getChannel().sendMessage("An exception has occured.").queue();
+            commandEvent.getChannel().sendMessage("An exception has occured.").queue();
         }
     }
 
     public RandomFact() {
-    this.name = "mindfuck";
-    this.aliases = new String[]{"facts", "randomfacts","mindblow", "fact","randomfact"};
+    this.name = "mindblow";
+    this.aliases = new String[]{"facts", "randomfacts","mindfuck", "fact","randomfact"};
     this.help = "Gets a random fact";
         this.category = new Category("Utility");
         this.guildOnly=false;

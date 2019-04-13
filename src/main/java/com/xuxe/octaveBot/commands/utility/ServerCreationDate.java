@@ -4,14 +4,17 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
 import java.time.OffsetDateTime;
+import java.util.logging.Logger;
 
 public class ServerCreationDate extends Command
 {
+    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent event)
+    protected void execute(CommandEvent commandEvent)
     {
-        OffsetDateTime creation = event.getGuild().getCreationTime();
-        event.getChannel().sendMessage("On the glorious day of " + creation.getDayOfMonth() + " " + creation.getMonth() + ", " + creation.getYear() + " was " + event.getGuild().getName() + " born. And the people rejoiced. jk they died.").queue();
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
+        OffsetDateTime creation = commandEvent.getGuild().getCreationTime();
+        commandEvent.getChannel().sendMessage("On the glorious day of " + creation.getDayOfMonth() + " " + creation.getMonth() + ", " + creation.getYear() + " was " + commandEvent.getGuild().getName() + " born. And the people rejoiced. jk they died.").queue();
     }
     public ServerCreationDate() {
     this.name = "servercreationdate";

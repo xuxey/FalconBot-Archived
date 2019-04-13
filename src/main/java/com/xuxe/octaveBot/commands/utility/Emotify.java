@@ -3,12 +3,16 @@ package com.xuxe.octaveBot.commands.utility;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 
+import java.util.logging.Logger;
+
 public class Emotify extends Command
 {
+    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent event)
+    protected void execute(CommandEvent commandEvent)
     {
-        String messageContent = event.getMessage().getContentRaw();
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
+        String messageContent = commandEvent.getMessage().getContentRaw();
         messageContent = messageContent.substring(9).toLowerCase();
         if (messageContent.length() > 12)
             messageContent = messageContent.substring(0, 12);
@@ -26,12 +30,12 @@ public class Emotify extends Command
                 t = t.concat(numbers[a]);
             }
         }
-        event.getChannel().deleteMessageById(event.getMessage().getId()).queue();
-        event.getChannel().sendMessage(t).queue();
+        commandEvent.getChannel().deleteMessageById(commandEvent.getMessage().getId()).queue();
+        commandEvent.getChannel().sendMessage(t).queue();
     }
     public Emotify() {
     this.name = "emotify";
-    this.aliases = new String[]{"emote", "emojify"};
+    this.aliases = new String[] {"emojify"};
     this.help = "Converts an alpha numeric string into its emote equivalent. Limited to 12 characters.";
     this.category = new Category("Utility");
         this.guildOnly=false;

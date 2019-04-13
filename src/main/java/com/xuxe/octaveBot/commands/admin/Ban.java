@@ -7,19 +7,22 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Member;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Ban extends Command {
-    public Ban() {
+
+    private static  final Logger logger = Logger.getGlobal();    public Ban() {
         this.name = "ban";
         this.aliases = new String[]{"BAN", "Ban"};
         this.help = "Bans mentioned account from the server";
         this.category = new Category("Moderation");
-        this.botPermissions = new Permission[Permission.BAN_MEMBERS.getOffset()];
+        this.userPermissions = new Permission[]{Permission.BAN_MEMBERS};
+        this.botPermissions = new Permission[]{Permission.BAN_MEMBERS};
     }
 
     @Override
     protected void execute(CommandEvent commandEvent) {
-        Guild guild = commandEvent.getGuild();
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());        Guild guild = commandEvent.getGuild();
 
         if (guild == null) {
             commandEvent.reply("You must run this command in a server");
@@ -28,12 +31,12 @@ public class Ban extends Command {
         Member author = commandEvent.getMessage().getMember();
 
         if (!author.hasPermission(Permission.BAN_MEMBERS)) {
-            commandEvent.reply("You don't have permission to kick people!");
+            commandEvent.reply("You don't have permission to ban!");
             return;
         }
         List<Member> mentionedMembers = commandEvent.getMessage().getMentionedMembers();
         if (mentionedMembers.isEmpty()) {
-            commandEvent.reply("You must mention who you want to be kicked");
+            commandEvent.reply("You must mention who you want to ban");
             return;
         }
         Member bannedUser = mentionedMembers.get(0);

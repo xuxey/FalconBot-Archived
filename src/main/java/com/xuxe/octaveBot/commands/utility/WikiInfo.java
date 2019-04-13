@@ -13,12 +13,15 @@ import org.jsoup.nodes.Element;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class WikiInfo extends Command {
+    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent event) {
-        String messageContent = event.getMessage().getContentRaw();
-        MessageChannel messageChannel = event.getChannel();
+    protected void execute(CommandEvent commandEvent) {
+        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
+        String messageContent = commandEvent.getMessage().getContentRaw();
+        MessageChannel messageChannel = commandEvent.getChannel();
 
         messageContent = messageContent.substring(messageContent.indexOf(" ")).trim();
         String backupTitle = messageContent;
@@ -116,7 +119,7 @@ public class WikiInfo extends Command {
             info.appendDescription(url);
             messageChannel.sendMessage(info.build()).queue();
         } catch (HttpStatusException httpE) {
-            messageChannel.sendMessage("Couldn't find anything, " + event.getAuthor().getAsMention()).queue();
+            messageChannel.sendMessage("Couldn't find anything, " + commandEvent.getAuthor().getAsMention()).queue();
         } catch (Exception e) {
             messageChannel.sendMessage("Something went wrong. ").queue();
             e.printStackTrace();
