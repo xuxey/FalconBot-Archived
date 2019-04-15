@@ -1,73 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea3b5f83-da80-42fc-8411-1a01c3402cd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/EmoteInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/database/SQLConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/soham.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/soham.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" beforeDir="false" />
+    <list default="true" id="ea3b5f83-da80-42fc-8411-1a01c3402cd1" name="Default Changelist" comment="Merge branch 'master' of https://github.com/ThatXuxe/FalconBot&#10;&#10;# Conflicts:&#10;#&#9;README.md">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/octave-bot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/octave-bot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/admin/Ban.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/admin/Ban.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/admin/Kick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/admin/Kick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/admin/PurgeMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/admin/PurgeMessages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/GetBotPing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/GetBotPing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/GetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/GetRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/GuildCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/GuildCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/HelpCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/UserCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/miscellaneous/UserCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/music/MusicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/music/MusicCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/owner/Eval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/owner/Eval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/owner/MemoryCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/owner/MemoryCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/owner/SetGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/owner/SetGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Avatar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Avatar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/CatImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/CatImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Emotify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Emotify.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Google.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Google.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/JoinDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/JoinDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/LearnJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/LearnJava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Math.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Math.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/PollMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/PollMaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/RandomFact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/RandomFact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/ServerCreationDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/ServerCreationDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/SongInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/SongInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Trivia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/Trivia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/WikiInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/WikiInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/YouTubeSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/commands/utility/YouTubeSearcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/listeners/MessageReceived.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/listeners/MessageReceived.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/octave-bot.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/admin/Ban.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/admin/Ban.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/admin/Kick.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/admin/Kick.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/admin/PurgeMessages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/admin/PurgeMessages.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/miscellaneous/GetBotPing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/miscellaneous/GetBotPing.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/miscellaneous/GetRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/miscellaneous/GetRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/miscellaneous/GuildCount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/miscellaneous/GuildCount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/miscellaneous/HelpCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/miscellaneous/UserCount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/miscellaneous/UserCount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/music/MusicCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/music/MusicCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/owner/Eval.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/owner/Eval.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/owner/MemoryCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/owner/MemoryCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/owner/SetGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/owner/SetGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Avatar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Avatar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/CatImage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/CatImage$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/CatImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/CatImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Emotify.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Emotify.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Google.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Google.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/JoinDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/JoinDate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/LearnJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/LearnJava.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Math.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Math.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/PollMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/PollMaker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/RandomFact.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/RandomFact.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/ServerCreationDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/ServerCreationDate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/SongInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/SongInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Trivia.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/Trivia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/WikiInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/WikiInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/YouTubeSearcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/commands/utility/YouTubeSearcher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/listeners/MessageReceived.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/listeners/MessageReceived.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xuxe/octaveBot/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/database/SQLConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/database/SQLConnector.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -86,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+            <state relative-caret-position="345">
+              <caret line="45" column="8" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="49" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -95,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/database/SQLConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            <state relative-caret-position="278">
+              <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,6 +77,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_CHANGES_POLICY" value="SHELVE" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -208,8 +146,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1220" />
-    <option name="y" value="-55" />
+    <option name="x" value="1150" />
     <option name="width" value="1945" />
     <option name="height" value="995" />
   </component>
@@ -252,6 +189,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="octaveBot" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="octave-bot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OctaveBot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="octaveBot" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -261,7 +207,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555183064293" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555261883006" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../maven-testing" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -359,7 +305,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8548673" visible="true" weight="0.23809524" />
       <window_info id="Structure" order="1" sideWeight="0.26198083" side_tool="true" weight="0.23809524" />
@@ -462,6 +407,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="git commit -m &quot;First commit&quot;" />
     <option name="LAST_COMMIT_MESSAGE" value="git commit -m &quot;First commit&quot;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/database/SQLConnector.java</url>
+          <line>12</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/main/Ref.java" />
@@ -855,15 +812,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        <state relative-caret-position="345">
+          <caret line="45" column="8" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="49" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xuxe/octaveBot/database/SQLConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="278">
+          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -4,5 +4,7 @@
 *.jar
 *.exe
 *.so
-/target/*
-/.idea/*
+target/
+.idea/
+*.properties
+*.txt

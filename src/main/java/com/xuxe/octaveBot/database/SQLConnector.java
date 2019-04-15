@@ -8,7 +8,14 @@ public class SQLConnector
 {
     public boolean connect()
     {
-        
+        try {
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/Falcon", "", "");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
         return true;
     }
 }
