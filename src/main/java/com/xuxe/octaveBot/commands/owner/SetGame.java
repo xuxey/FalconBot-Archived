@@ -10,14 +10,15 @@ public class SetGame extends Command
     {
         this.name = "setgame";
         this.ownerCommand = true;
+        this.hidden = true;
         this.aliases = new String[]{"game"};
         this.category = new Category("Owner");
     }
     @Override
     protected void execute(CommandEvent commandEvent)
     {
-        char game = commandEvent.getArgs().charAt(1);
-        String content = commandEvent.getArgs().substring(2).trim();
+        char game = commandEvent.getArgs().charAt(0);
+        String content = commandEvent.getArgs().substring(1).trim();
         switch (game)
         {
             case 'p':commandEvent.getJDA().getPresence().setGame(Game.playing(content));

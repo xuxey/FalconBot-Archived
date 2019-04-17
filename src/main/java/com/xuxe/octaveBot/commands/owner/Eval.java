@@ -33,6 +33,7 @@ public class Eval extends Command
         }
         this.ownerCommand = true;
         this.name = "eval";
+        this.hidden = true;
         this.help = "evaluates arguments passed to it.";
         this.category = new Category("Owner");
     }

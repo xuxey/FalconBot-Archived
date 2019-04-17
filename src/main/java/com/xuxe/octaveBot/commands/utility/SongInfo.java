@@ -8,11 +8,9 @@ import net.dv8tion.jda.core.EmbedBuilder;
 
 import java.awt.*;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Logger;
 
 public class SongInfo extends Command
 {
-    private static final Logger logger = Logger.getGlobal();
     public SongInfo()
     {
         this.name = "song";
@@ -26,7 +24,6 @@ public class SongInfo extends Command
     @Override
     protected void execute(CommandEvent commandEvent)
     {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
         try
         {
             EmbedBuilder embedBuilder = new EmbedBuilder();

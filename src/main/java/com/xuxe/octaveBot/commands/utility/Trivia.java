@@ -14,16 +14,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
 
 public class Trivia extends Command
 {
-    private static final Logger logger = Logger.getGlobal();
     private EventWaiter waiter;
     @Override
-    protected void execute(CommandEvent commandEvent)
+    protected void execute(CommandEvent event)
     {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
         try
         {
             List<String> list = Files.readAllLines(Paths.get("trivia.txt"), StandardCharsets.ISO_8859_1);
@@ -35,21 +32,21 @@ public class Trivia extends Command
             Scanner sc = new Scanner(mind);
             codes = list.get(randomNumber).split("=");
             trivia.setDescription(codes[0]);
-            commandEvent.getChannel().sendMessage(trivia.build()).queue
+            event.getChannel().sendMessage(trivia.build()).queue
                (
                     e -> waiter.waitForEvent(
                             MessageReceivedEvent.class,
-                            evt -> evt.getAuthor().equals(commandEvent.getAuthor()) && evt.getChannel().equals(commandEvent.getChannel()),
+                            evt -> evt.getAuthor().equals(event.getAuthor()) && evt.getChannel().equals(event.getChannel()),
                             evt -> {
                                      String content = evt.getMessage().getContentRaw();
                                     if(content.toLowerCase().contains(codes[1].toLowerCase()))
-                                        commandEvent.getChannel().sendMessage("Correct! You have won: 1 brownie point!").queue();
+                                        event.getChannel().sendMessage("Correct! You have won: 1 brownie point!").queue();
                                     else
-                                        commandEvent.getChannel().sendMessage("Wrong! You get an F.").queue();
+                                        event.getChannel().sendMessage("Wrong! You get an F.").queue();
                                     },
                             15,
                             TimeUnit.SECONDS,
-                            () -> commandEvent.reply("Sorry, you took too long.")),
+                            () -> event.reply("Sorry, you took too long.")),
                     e ->{}
                );
 
@@ -57,7 +54,7 @@ public class Trivia extends Command
         }
         catch (IOException e)
         {
-            commandEvent.reply("Error occurred.");
+            event.reply("Error occurred.");
             e.printStackTrace();
         }
     }

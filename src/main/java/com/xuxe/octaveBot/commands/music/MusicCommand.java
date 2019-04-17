@@ -6,19 +6,15 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.User;
 
-import java.util.logging.Logger;
-
 public class MusicCommand extends Command
 {
-    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent commandEvent)
+    protected void execute(CommandEvent event)
     {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
-        String messageContent = commandEvent.getMessage().getContentRaw();
-        User author = commandEvent.getAuthor();
-        MessageChannel messageChannel = commandEvent.getChannel();
-        Guild guild = commandEvent.getGuild();
+        String messageContent = event.getMessage().getContentRaw();
+        User author = event.getAuthor();
+        MessageChannel messageChannel = event.getChannel();
+        Guild guild = event.getGuild();
         MusicMethods musicMethods = new MusicMethods();
             if (messageContent.equalsIgnoreCase("!music"))
             {
@@ -31,11 +27,11 @@ public class MusicCommand extends Command
                 {
                     if ("p".equals(command[1]))
                     {
-                        musicMethods.loadAndPlay(commandEvent.getTextChannel(), messageContent.substring(9).trim(), guild.getMember(author));
+                        musicMethods.loadAndPlay(event.getTextChannel(), messageContent.substring(9).trim(), guild.getMember(author));
                     }
                     else if ("skip".equals(command[1]))
                     {
-                        musicMethods.skipTrack(commandEvent.getTextChannel());
+                        musicMethods.skipTrack(event.getTextChannel());
                     }
                 }
             }

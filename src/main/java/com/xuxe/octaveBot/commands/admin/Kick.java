@@ -7,10 +7,7 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Member;
 
 import java.util.List;
-import java.util.logging.Logger;
-
-public class Kick extends Command {
-        private static Logger logger = Logger.getGlobal();
+    public class Kick extends Command {
         public Kick() {
             this.name = "kick";
             this.aliases = new String[]{"KICK", "kick", "byebye"};
@@ -20,7 +17,7 @@ public class Kick extends Command {
 
         @Override
         protected void execute(CommandEvent commandEvent) {
-            logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());            Guild guild = commandEvent.getGuild();
+            Guild guild = commandEvent.getGuild();
 
             if (guild == null) {
                 commandEvent.reply("You must run this command in a server");

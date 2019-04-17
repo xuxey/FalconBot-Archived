@@ -10,11 +10,9 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import java.io.FileReader;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 public class YouTubeSearcher extends Command {
 
-    private static final Logger logger = Logger.getGlobal();
     public YouTubeSearcher()
     {
         this.name = "youtube";
@@ -23,13 +21,11 @@ public class YouTubeSearcher extends Command {
         this.cooldownScope = CooldownScope.USER;
         this.cooldown = 5;
         this.category = new Category("Utility");
-        //this.longhelp = "";
     }
 
     @Override
     protected void execute(CommandEvent commandEvent)
     {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
         final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
         final JsonFactory JSON_FACTORY = new JacksonFactory();
         try

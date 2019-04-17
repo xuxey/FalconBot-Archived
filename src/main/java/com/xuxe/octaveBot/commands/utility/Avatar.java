@@ -3,18 +3,18 @@ package com.xuxe.octaveBot.commands.utility;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.Permission;
+import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.User;
 
 import java.awt.*;
-import java.util.logging.Logger;
 
 public class Avatar extends Command {
-    private static final Logger logger = Logger.getGlobal();
     @Override
     protected void execute(CommandEvent commandEvent)
     {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());        String messageContent = commandEvent.getMessage().getContentRaw();
+        String messageContent = commandEvent.getMessage().getContentRaw();
         User author = commandEvent.getAuthor();
         MessageChannel messageChannel = commandEvent.getChannel();
         System.out.println("~~~~~~"+messageContent);
@@ -33,5 +33,6 @@ public class Avatar extends Command {
         this.help = "Gets a mentioned user's profile picture. Alternatively, gets sender's profile picture if no one is mentioned.";
         this.category = new Category("Utility");
         this.guildOnly=false;
+        this.userPermissions = new Permission[]{Permission.BAN_MEMBERS,Permission.MANAGE_CHANNEL};
     }
 }

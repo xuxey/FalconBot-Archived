@@ -7,22 +7,18 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Member;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class Ban extends Command {
-
-    private static  final Logger logger = Logger.getGlobal();    public Ban() {
+    public Ban() {
         this.name = "ban";
         this.aliases = new String[]{"BAN", "Ban"};
         this.help = "Bans mentioned account from the server";
         this.category = new Category("Moderation");
-        this.userPermissions = new Permission[]{Permission.BAN_MEMBERS};
-        this.botPermissions = new Permission[]{Permission.BAN_MEMBERS};
     }
 
     @Override
     protected void execute(CommandEvent commandEvent) {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());        Guild guild = commandEvent.getGuild();
+        Guild guild = commandEvent.getGuild();
 
         if (guild == null) {
             commandEvent.reply("You must run this command in a server");

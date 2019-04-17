@@ -4,19 +4,16 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.entities.Guild;
 
-import java.util.logging.Logger;
-
 public class UserCount extends Command
 {
-    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent commandEvent)
+    protected void execute(CommandEvent event)
     {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());        long users = 0;
-        for (Guild g : commandEvent.getJDA().getGuilds()) {
+        long users = 0;
+        for (Guild g : event.getJDA().getGuilds()) {
             users += g.getMembers().size();
         }
-        commandEvent.getChannel().sendMessage("This bot has " + users + " users.").queue();
+        event.getChannel().sendMessage("This bot has " + users + " users.").queue();
     }
     public UserCount() {
     this.name = "usercount";

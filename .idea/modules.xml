@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/octave-bot.iml" filepath="$PROJECT_DIR$/octave-bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/OctaveBot.iml" filepath="$PROJECT_DIR$/.idea/OctaveBot.iml" />
     </modules>
   </component>
 </project>

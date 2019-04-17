@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="octave-bot" />
+        <module name="OctaveBot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="octave-bot" target="8" />
+      <module name="OctaveBot" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

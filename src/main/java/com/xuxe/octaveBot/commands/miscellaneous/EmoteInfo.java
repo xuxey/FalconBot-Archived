@@ -4,10 +4,8 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.core.entities.Emote;
 
-import java.util.logging.Logger;
-
 public class EmoteInfo extends Command {
-    private static final Logger logger = Logger.getGlobal();
+
     public EmoteInfo() {
         this.name = "emoji";
         this.aliases = new String[]{"emote","char","ch","emo"};
@@ -16,21 +14,21 @@ public class EmoteInfo extends Command {
     }
 
     @Override
-    public void execute(CommandEvent commandEvent) {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());        String str = commandEvent.getArgs().split(" ")[0];
+    public void execute(CommandEvent event) {
+        String str = event.getArgs().split(" ")[0];
         if(str.matches("<:.*:\\d+>"))
         {
             String id = str.replaceAll("<:.*:(\\d+)>", "$1");
-            Emote emote = commandEvent.getJDA().getEmoteById(id);
+            Emote emote = event.getJDA().getEmoteById(id);
             if(emote==null)
             {
-                commandEvent.reply("Unknown emote:\n" +
+                event.reply("Unknown emote:\n" +
                         "ID: **"+id+"**\n" +
                         "Guild: Unknown\n" +
                         "URL: https://discordcdn.com/emojis/"+id+".png");
                 return;
             }
-            commandEvent.reply("Emote **" + emote.getName() + "**:\n" +
+            event.reply("Emote **" + emote.getName() + "**:\n" +
                     "ID: **" + emote.getId() + "**\n" +
                     "Guild: " + (emote.getGuild() == null ? "Unknown" : "**" + emote.getGuild().getName() + "**") + "\n" +
                     "URL: " + emote.getImageUrl());
@@ -38,7 +36,7 @@ public class EmoteInfo extends Command {
         }
         if(str.codePoints().count()>10)
         {
-            commandEvent.reply("Error: Invalid emote/Input may be too long");
+            event.reply("Error: Invalid emote/Input may be too long");
             return;
         }
         StringBuilder builder = new StringBuilder("Info: ");
@@ -60,6 +58,6 @@ public class EmoteInfo extends Command {
             }
             builder.append(String.valueOf(chars)).append("   _").append(Character.getName(code)).append("_");
         });
-        commandEvent.reply(builder.toString());
+        event.reply(builder.toString());
     }
 }

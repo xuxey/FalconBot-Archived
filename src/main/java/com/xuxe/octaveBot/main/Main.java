@@ -1,26 +1,21 @@
 package com.xuxe.octaveBot.main;
+
+import com.xuxe.octaveBot.commands.miscellaneous.*;
+import com.xuxe.octaveBot.commands.utility.*;
+import com.xuxe.octaveBot.commands.admin.*;
+import com.xuxe.octaveBot.commands.music.*;
+import com.xuxe.octaveBot.commands.owner.*;
+import com.xuxe.octaveBot.listeners.*;
+
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
-import com.xuxe.octaveBot.commands.admin.Kick;
-import com.xuxe.octaveBot.commands.admin.PurgeMessages;
-import com.xuxe.octaveBot.commands.miscellaneous.*;
-import com.xuxe.octaveBot.commands.music.MusicCommand;
-import com.xuxe.octaveBot.commands.owner.Eval;
-import com.xuxe.octaveBot.commands.owner.ListGuilds;
-import com.xuxe.octaveBot.commands.owner.MemoryCommand;
-import com.xuxe.octaveBot.commands.owner.Say;
-import com.xuxe.octaveBot.commands.utility.*;
-import com.xuxe.octaveBot.commands.utility.Math;
-import com.xuxe.octaveBot.listeners.Friends;
-import com.xuxe.octaveBot.listeners.MessageReceived;
-import com.xuxe.octaveBot.listeners.Ready;
+
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
-import com.xuxe.octaveBot.commands.admin.Ban;
+
 import java.io.*;
 import java.util.Properties;
-import java.util.logging.Logger;
 
 /*
     Copyright 2019 ThatXuxe
@@ -34,11 +29,10 @@ import java.util.logging.Logger;
  */
 @SuppressWarnings("unused")
 public class Main extends ListenerAdapter {
-    
-    private static  final Logger logger = Logger.getGlobal();
-    public static void main(String[] args) throws Exception {
 
-        logger.info("FalconBot is launching... T minus alpha");
+    public static void main(String[] args) throws Exception
+    {
+
         //extracting bot token and owner ID
         Properties properties = new Properties();
         FileReader fileReader = new FileReader("config.properties");
@@ -48,13 +42,12 @@ public class Main extends ListenerAdapter {
         fileReader.close();
         properties.clear();
         EventWaiter waiter = new EventWaiter();
-        logger.info("Assets loaded, event waiter(s) have been initialized.");
+
         //building commands.
         CommandClientBuilder commandClientBuilder = new CommandClientBuilder();
 
         commandClientBuilder.setPrefix("!!");
         //Admin
-        logger.info("Adding commands.");
         commandClientBuilder.addCommand(new Kick());
         commandClientBuilder.addCommand(new Ban());
         commandClientBuilder.addCommand(new PurgeMessages());
@@ -73,7 +66,7 @@ public class Main extends ListenerAdapter {
         commandClientBuilder.addCommand(new Trivia(waiter));
         commandClientBuilder.addCommand(new SongInfo());
         commandClientBuilder.addCommand(new YouTubeSearcher());
-        commandClientBuilder.addCommand(new Math());
+        commandClientBuilder.addCommand(new MathCommand());
         //miscellaneous
         commandClientBuilder.addCommand(new GetBotPing());
         commandClientBuilder.addCommand(new GetRepository());
@@ -85,23 +78,17 @@ public class Main extends ListenerAdapter {
         commandClientBuilder.addCommand(new Say());
         commandClientBuilder.addCommand(new MemoryCommand());
         commandClientBuilder.addCommand(new ListGuilds());
-        logger.info("Commands added.");
         //building client
-        logger.info("Using Owner ID: "+ownerID);
         commandClientBuilder.setOwnerId(ownerID);
         commandClientBuilder.useHelpBuilder(true);
         //commandClientBuilder.setDiscordBotsKey("");
 
         JDA jda = new JDABuilder(AccountType.BOT).setToken(token).addEventListener(commandClientBuilder.build()).addEventListener(waiter).build().awaitReady();
         jda.getPresence().setGame(Game.listening("Raptor engines (!!help)"));
-        logger.info("JDA created.");
         //Event Listeners
         commandClientBuilder.setServerInvite("https://discordapp.com/invite/xNyH7y3");
-        logger.info("Adding Event Listeners");
+
         jda.addEventListener(new MessageReceived());
         jda.addEventListener(new Ready());
-        jda.addEventListener(new Friends());
-        logger.info("---FalconBot is a go.---");
-        logger.info("Startup Finished.");
     }
 }

@@ -8,17 +8,15 @@ import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.requests.RestAction;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class PurgeMessages extends Command
 {
-    private static Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent commandEvent)
+    protected void execute(CommandEvent event)
     {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());        MessageChannel messageChannel = commandEvent.getChannel();
-        if(commandEvent.getMember().hasPermission(Permission.MESSAGE_MANAGE)) {
-            String[] command = commandEvent.getMessage().getContentRaw().split(" ");
+        MessageChannel messageChannel = event.getChannel();
+        if(event.getMember().hasPermission(Permission.MESSAGE_MANAGE)) {
+            String[] command = event.getMessage().getContentRaw().split(" ");
 
             if (command.length == 2) {
                 RestAction<List<Message>> messageHistory = messageChannel.getHistory().retrievePast(Integer.parseInt(command[1]) + 1);

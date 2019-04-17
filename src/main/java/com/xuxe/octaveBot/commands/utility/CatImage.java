@@ -11,16 +11,13 @@ import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.MessageChannel;
 
 import java.awt.*;
-import java.util.logging.Logger;
 
 public class CatImage extends Command
 {
-    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent commandEvent)
+    protected void execute(CommandEvent event)
     {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
-        MessageChannel messageChannel = commandEvent.getChannel();
+        MessageChannel messageChannel = event.getChannel();
             Unirest.get("http://aws.random.cat/meow").asJsonAsync(new Callback<JsonNode>() {
                 @Override
                 public void completed(HttpResponse<JsonNode> hr) {

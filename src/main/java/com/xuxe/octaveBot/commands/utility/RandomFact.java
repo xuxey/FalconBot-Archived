@@ -8,15 +8,12 @@ import java.awt.*;
 import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 public class RandomFact extends Command
 {
-    private static final Logger logger = Logger.getGlobal();
     @Override
-    protected void execute(CommandEvent commandEvent)
+    protected void execute(CommandEvent event)
     {
-        logger.info(name+" command used by "+commandEvent.getAuthor().getId()+" in "+commandEvent.getGuild().getId());
         try {
             UsefulMethods usefulMethods = new UsefulMethods();
             Random r = new Random();
@@ -31,7 +28,7 @@ public class RandomFact extends Command
                     mindF.setTitle("MindFuck");
                     mindF.setDescription(s);
                     mindF.setColor(Color.red);
-                    commandEvent.getChannel().sendMessage(mindF.build()).queue();
+                    event.getChannel().sendMessage(mindF.build()).queue();
                     break;
                 }
             }
@@ -40,7 +37,7 @@ public class RandomFact extends Command
         }
         catch (IOException io)
         {
-            commandEvent.getChannel().sendMessage("An exception has occured.").queue();
+            event.getChannel().sendMessage("An exception has occured.").queue();
         }
     }
 
