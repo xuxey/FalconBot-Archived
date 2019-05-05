@@ -1,5 +1,9 @@
 package com.xuxe.octaveBot.main;
 
+import com.xuxe.octaveBot.commands.fun.BrownieCommand;
+import com.xuxe.octaveBot.commands.fun.BrownieTopCommand;
+import com.xuxe.octaveBot.commands.fun.CatImage;
+import com.xuxe.octaveBot.commands.fun.Trivia;
 import com.xuxe.octaveBot.commands.miscellaneous.*;
 import com.xuxe.octaveBot.commands.utility.*;
 import com.xuxe.octaveBot.commands.admin.*;
@@ -15,6 +19,9 @@ import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 /*
@@ -30,8 +37,8 @@ import java.util.Properties;
 @SuppressWarnings("unused")
 public class Main extends ListenerAdapter {
 
-    public static void main(String[] args) throws Exception
-    {
+    private static Connection connection = null;
+    public static void main(String[] args) throws Exception {
 
         //extracting bot token and owner ID
         Properties properties = new Properties();
@@ -39,6 +46,8 @@ public class Main extends ListenerAdapter {
         properties.load(fileReader);
         String token = properties.getProperty("token");
         String ownerID = properties.getProperty("ownerID");
+        String sqlID = properties.getProperty("sqlID");
+        String sqlPassword = properties.getProperty("sqlPassword");
         fileReader.close();
         properties.clear();
         EventWaiter waiter = new EventWaiter();
@@ -47,6 +56,7 @@ public class Main extends ListenerAdapter {
         CommandClientBuilder commandClientBuilder = new CommandClientBuilder();
 
         commandClientBuilder.setPrefix("!!");
+        commandClientBuilder.setAlternativePrefix("//");
         //Admin
         commandClientBuilder.addCommand(new Kick());
         commandClientBuilder.addCommand(new Ban());
@@ -67,6 +77,8 @@ public class Main extends ListenerAdapter {
         commandClientBuilder.addCommand(new SongInfo());
         commandClientBuilder.addCommand(new YouTubeSearcher());
         commandClientBuilder.addCommand(new MathCommand());
+        commandClientBuilder.addCommand(new BrownieCommand());
+        commandClientBuilder.addCommand(new BrownieTopCommand());
         //miscellaneous
         commandClientBuilder.addCommand(new GetBotPing());
         commandClientBuilder.addCommand(new GetRepository());
@@ -78,6 +90,8 @@ public class Main extends ListenerAdapter {
         commandClientBuilder.addCommand(new Say());
         commandClientBuilder.addCommand(new MemoryCommand());
         commandClientBuilder.addCommand(new ListGuilds());
+        commandClientBuilder.addCommand(new SetGame());
+        commandClientBuilder.addCommand(new SetBrownies());
         //building client
         commandClientBuilder.setOwnerId(ownerID);
         commandClientBuilder.useHelpBuilder(true);
@@ -87,8 +101,19 @@ public class Main extends ListenerAdapter {
         jda.getPresence().setGame(Game.listening("Raptor engines (!!help)"));
         //Event Listeners
         commandClientBuilder.setServerInvite("https://discordapp.com/invite/xNyH7y3");
-
         jda.addEventListener(new MessageReceived());
         jda.addEventListener(new Ready());
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Falcon?autoReconnect=true&user=" + sqlID.trim() + "&password=" + sqlPassword.trim());
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public Connection getConnection()
+    {
+            return connection;
     }
 }

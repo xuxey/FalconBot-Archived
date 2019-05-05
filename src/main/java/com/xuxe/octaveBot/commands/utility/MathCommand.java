@@ -11,77 +11,76 @@ import java.util.concurrent.Executors;
 
 public class MathCommand extends Command {
     @Override
-    protected void execute(CommandEvent event)
-    {
+    protected void execute(CommandEvent event) {
         MessageChannel messageChannel = event.getChannel();
         try {
-            String messageContent = event.getMessage().getContentRaw();
-
-            messageContent = messageContent.substring(6).trim();
-            if (messageContent.length() <= 25) {
-                messageContent = messageContent.replace("sqrt", "Math.sqrt");
-                messageContent = messageContent.replace("pow", "Math.pow");
-                messageContent = messageContent.replace("log", "Math.log");
-                messageContent = messageContent.replace("sin", "Math.sin");
-                messageContent = messageContent.replace("cos", "Math.cos");
-                messageContent = messageContent.replace("tan", "Math.tan");
-                messageContent = messageContent.replace("sec", "Math.acos");
-                messageContent = messageContent.replace("cosec", "Math.asin");
-                messageContent = messageContent.replace("cot", "Math.atan");
-                messageContent = messageContent.replace("log10", "Math.log10");
-                messageContent = messageContent.replace("pi", "Math.PI");
-                messageContent = messageContent.replace("e", "Math.E");
-                messageContent = messageContent.replace("×", "*");
-                messageContent = messageContent.replace("÷", "/");
-                if (messageContent.contains("Java")) {
-                    messageChannel.sendMessage("use of keyword: `Java` is NOT allowed!").queue();
-                    User author = event.getAuthor();
-                    System.out.println(author.getName() + "#" + author.getDiscriminator() + " tried using Java in guild " + event.getGuild().getId() + " and channel " + messageChannel.getId() + " in message " + event.getMessage().getId());
-                    throw new Exception("Illegal Math argument: Java.type");
-                }
-                while (messageContent.contains("^") || messageContent.contains("!")) {
-                    if (messageContent.contains("^")) {
-                        String part1 = messageContent.substring(0, messageContent.indexOf('^'));
-                        String part2 = messageContent.substring(messageContent.indexOf('^') + 1);
-                        messageContent = "Math.pow(" + part1 + "," + part2 + ");";
-                    }
-                    if (messageContent.contains("!")) {
-                        String part1 = messageContent.substring(0, messageContent.indexOf('!'));
-                        String part2 = messageContent.substring(messageContent.indexOf('!') + 1);
-                        messageContent = "math.factorial(" + part1 + ")" + part2;
-                    }
-                }
-                messageContent = messageContent + ";";
-                System.out.println("Script:    " + messageContent);
-                NashornSandbox sandbox = NashornSandboxes.create();
-                //github.com/javadelight/delight-nashorn-sandbox
-                sandbox.setMaxCPUTime(100);
-                sandbox.setMaxPreparedStatements(0);
-                sandbox.setExecutor(Executors.newSingleThreadExecutor());
-                Object result = sandbox.eval(messageContent);
-                if (result.toString().equalsIgnoreCase("NaN") || result.toString().equalsIgnoreCase("Infinity")) {
-                    messageChannel.sendMessage(result.toString()).queue();
-                } else {
-                    Double res = Double.parseDouble(result.toString());
-                    if (res - res.intValue() == 0) {
-                        messageChannel.sendMessage("" + res.intValue()).queue();
-                    } else {
-                        messageChannel.sendMessage(result.toString()).queue();
-                    }
-                }
-            } else {
+            String messageContent = event.getArgs();
+            if (messageContent.length() > 25) {
                 messageChannel.sendMessage("Your math expression is too long!").queue();
+                return;
             }
+            messageContent = messageContent.replace("sqrt", "Math.sqrt");
+            messageContent = messageContent.replace("pow", "Math.pow");
+            messageContent = messageContent.replace("log", "Math.log");
+            messageContent = messageContent.replace("sin", "Math.sin");
+            messageContent = messageContent.replace("cos", "Math.cos");
+            messageContent = messageContent.replace("tan", "Math.tan");
+            messageContent = messageContent.replace("sec", "Math.acos");
+            messageContent = messageContent.replace("cosec", "Math.asin");
+            messageContent = messageContent.replace("cot", "Math.atan");
+            messageContent = messageContent.replace("log10", "Math.log10");
+            messageContent = messageContent.replace("pi", "Math.PI");
+            messageContent = messageContent.replace("e", "Math.E");
+            messageContent = messageContent.replace("×", "*");
+            messageContent = messageContent.replace("÷", "/");
+            if (messageContent.contains("Java")) {
+                messageChannel.sendMessage("use of keyword: `Java` is NOT allowed!").queue();
+                User author = event.getAuthor();
+                System.out.println(author.getName() + "#" + author.getDiscriminator() + " tried using Java in guild " + event.getGuild().getId() + " and channel " + messageChannel.getId() + " in message " + event.getMessage().getId());
+                throw new Exception("Illegal Math argument: Java.type");
+            }
+            while (messageContent.contains("^") || messageContent.contains("!")) {
+                if (messageContent.contains("^")) {
+                    String part1 = messageContent.substring(0, messageContent.indexOf('^'));
+                    String part2 = messageContent.substring(messageContent.indexOf('^') + 1);
+                    messageContent = "Math.pow(" + part1 + "," + part2 + ");";
+                }
+                if (messageContent.contains("!")) {
+                    String part1 = messageContent.substring(0, messageContent.indexOf('!'));
+                    String part2 = messageContent.substring(messageContent.indexOf('!') + 1);
+                    messageContent = "math.factorial(" + part1 + ")" + part2;
+                }
+            }
+            messageContent = messageContent + ";";
+            System.out.println("Script:    " + messageContent);
+            NashornSandbox sandbox = NashornSandboxes.create();
+            //github.com/javadelight/delight-nashorn-sandbox
+            sandbox.setMaxCPUTime(100);
+            sandbox.setMaxPreparedStatements(0);
+            sandbox.setExecutor(Executors.newSingleThreadExecutor());
+            Object result = sandbox.eval(messageContent);
+            if (result.toString().equalsIgnoreCase("NaN") || result.toString().equalsIgnoreCase("Infinity")) {
+                messageChannel.sendMessage(result.toString()).queue();
+            } else {
+                Double res = Double.parseDouble(result.toString());
+                if (res - res.intValue() == 0) {
+                    messageChannel.sendMessage("" + res.intValue()).queue();
+                } else {
+                    messageChannel.sendMessage(result.toString()).queue();
+                }
+            }
+
         } catch (Exception e) {
             messageChannel.sendMessage("Something went wrong").queue();
             e.printStackTrace();
         }
     }
+
     public MathCommand() {
         this.name = "math";
         this.aliases = new String[]{"mathematics", "maths", "calc", "calculate"};
         this.help = "Calculates a math expression";
         this.category = new Category("Utility");
-        this.guildOnly=true;
+        this.guildOnly = true;
     }
 }
