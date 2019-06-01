@@ -36,22 +36,16 @@ public class Google extends Command
                 linkText = "" + result.text();
                 System.out.println("!g LOG: " + linkText + ", URL::" + linkHref.substring(6, linkHref.indexOf("&")) + " requested by " + author.getName());
 
-                EmbedBuilder googleE = new EmbedBuilder();
                 String desc = linkHref.substring(7, linkHref.indexOf("&"));
                 if (desc.startsWith("?q=")) {
-                    googleE.setColor(Color.RED);
-                    googleE.setTitle("**Oops!**");
-                    googleE.setDescription("Google couldn't get you anything worth reading!");
-                    messageChannel.sendMessage(googleE.build()).queue();
+                    event.reply("Sorry, Couldn't really find anything. Perhaps you could try //youtube or //wiki");
                 } else {
-                    googleE.setColor(Color.ORANGE);
-                    googleE.setTitle(linkText);
-                    googleE.setDescription(desc.replace("%3Fv%3D","?v="));
-                    messageChannel.sendMessage(googleE.build()).queue();
+                    event.reply("**"+linkText+"**");
+                    event.reply(desc.replace("%3Fv%3D","?v="));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                messageChannel.sendMessage("Something went wrong! (Jsoup messed up lol)").queue();
+                messageChannel.sendMessage("Something went wrong! Try again later.").queue();
             }
         }
     }

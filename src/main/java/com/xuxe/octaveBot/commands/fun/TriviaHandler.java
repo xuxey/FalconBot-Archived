@@ -2,6 +2,7 @@ package com.xuxe.octaveBot.commands.fun;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.xuxe.octaveBot.workbench.HtmlManipulator;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.jsoup.Jsoup;
@@ -43,8 +44,10 @@ class TriviaInstance //POJO away from POJO
     }
 
     String getQuestion() {
+        question = HtmlManipulator.replaceHtmlEntities(question);
         question = question.replace("&quot;","\"");//&quot;	"	Quotation Mark
         question = question.replace("&amp;","&");//&#38;	&amp;	&	Ampersand
+        question = question.replace("&#38;","&");
         question = question.replace("&frasl;","/");//&#47;	&frasl;	/	Slash
         question = question.replace("&lt;","<");//&#60;	&lt;	<	Less Than Sign
         question = question.replace("&gt;",">");//&#62;	&gt;	>	Greater Than Sign
@@ -72,6 +75,14 @@ class TriviaInstance //POJO away from POJO
         {
             all_answers = all_answers.concat( (char)(65+i) + "." + all_answers_arr[i] + "\n");
         }
+        all_answers = all_answers.replace("&quot;","\"");//&quot;	"	Quotation Mark
+        all_answers = all_answers.replace("&amp;","&");//&#38;	&amp;	&	Ampersand
+        all_answers = all_answers.replace("&#38;","&");
+        all_answers = all_answers.replace("&frasl;","/");//&#47;	&frasl;	/	Slash
+        all_answers = all_answers.replace("&lt;","<");//&#60;	&lt;	<	Less Than Sign
+        all_answers = all_answers.replace("&gt;",">");//&#62;	&gt;	>	Greater Than Sign
+        all_answers = all_answers.replace("&#039;","\'"); //Im not a bad dev I swear, its just that the maven library I was using to parse this got deprecated lmao.
+        all_answers = HtmlManipulator.replaceHtmlEntities(all_answers);
         return all_answers;
     }
 
@@ -106,6 +117,7 @@ class TriviaInstance //POJO away from POJO
     private String type;
     private String difficulty;
     private String question;
+    private String all_answers;
     private String correct_answer;
     private String[] incorrect_answers;
     private int browniePoints = 0;

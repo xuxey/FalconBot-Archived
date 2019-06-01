@@ -32,7 +32,5 @@ public class Avatar extends Command {
         this.aliases = new String[]{"profile", "userimage"};
         this.help = "Gets a mentioned user's profile picture. Alternatively, gets sender's profile picture if no one is mentioned.";
         this.category = new Category("Utility");
-        this.guildOnly=false;
-        this.userPermissions = new Permission[]{Permission.BAN_MEMBERS,Permission.MANAGE_CHANNEL};
     }
 }

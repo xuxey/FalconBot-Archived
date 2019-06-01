@@ -23,6 +23,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /*
     Copyright 2019 ThatXuxe
@@ -38,6 +41,7 @@ import java.util.Properties;
 public class Main extends ListenerAdapter {
 
     private static Connection connection = null;
+
     public static void main(String[] args) throws Exception {
 
         //extracting bot token and owner ID
@@ -79,6 +83,7 @@ public class Main extends ListenerAdapter {
         commandClientBuilder.addCommand(new MathCommand());
         commandClientBuilder.addCommand(new BrownieCommand());
         commandClientBuilder.addCommand(new BrownieTopCommand());
+        commandClientBuilder.addCommand(new DefineCommand());
         //miscellaneous
         commandClientBuilder.addCommand(new GetBotPing());
         commandClientBuilder.addCommand(new GetRepository());
@@ -103,17 +108,19 @@ public class Main extends ListenerAdapter {
         commandClientBuilder.setServerInvite("https://discordapp.com/invite/xNyH7y3");
         jda.addEventListener(new MessageReceived());
         jda.addEventListener(new Ready());
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Falcon?autoReconnect=true&user=" + sqlID.trim() + "&password=" + sqlPassword.trim());
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        jda.addEventListener(new GuildVoiceLeave());
+        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+        scheduledExecutorService.scheduleAtFixedRate(() -> {
+            try {
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Falcon?autoReconnect=true&user=" + sqlID.trim() + "&password=" + sqlPassword.trim());
+            } catch (
+                    Exception e) {
+                e.printStackTrace();
+            }
+        }, 0, 7, TimeUnit.HOURS);
     }
 
-    public Connection getConnection()
-    {
-            return connection;
+    public Connection getConnection() {
+        return connection;
     }
 }
