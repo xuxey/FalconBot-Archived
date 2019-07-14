@@ -4,6 +4,8 @@
 [FalconBot](https://discordbots.org/bot/511949995776147466) is a small side project that emnated from curiosity of Discord Bots.
 This bot makes your discord community experience better by adding convenience, fun and a tad bit of utility!
 
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/ThatXuxe/)
+
 ## About
 FalconBot is built around parsing the internet within discord. With commands such as google, youtube and wiki, FalconBot helps you find information you need instantaneously.
 
